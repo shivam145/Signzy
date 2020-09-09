@@ -1,0 +1,55 @@
+.card_img {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.wiki_img {
+    width: 50%;
+}
+
+.card_summary {
+    margin-top: 1rem;
+}
+.wiki_summary {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.header {
+    text-align: center;
+}
+
+.card_link {
+    border: 1px solid black;
+    border-radius: 2rem;
+    background-color: silver;
+    text-align: center;
+}
+
+.wiki_link {
+    color: black;
+    text-decoration-line: none;
+}
+
+.ui-grid-c {
+    display: flex;
+    /* border: 1px solid black; */
+}
+.ui-block-b,
+.ui-block-c,
+.ui-block-d {
+    /* border: 1px solid black; */
+    background-color: white;
+    margin: 0 1rem 0 1rem;
+    /* align-content: center; */
+}
+
+.searchButtonClickText_h,
+.next_h,
+.previous_h {
+    /* border: 1px solid black; */
+    margin: auto;
+    color: black;
+    text-decoration: none;
+}
