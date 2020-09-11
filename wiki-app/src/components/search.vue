@@ -28,16 +28,16 @@
               color="primary"
               >Search</v-btn
             >
-            <!-- v-on:click="getData" -->
           </v-col>
         </v-row>
       </v-form>
-
-      <!-- <p>
-        {{ wikiData.data.wikiItems.matchedkeywords }}
-      </p> -->
     </v-container>
     <wikigallery :wikiData="wikiData"> </wikigallery>
+    <div v-if="notFound">
+      <v-card>
+        {{ notFound }}
+      </v-card>
+    </div>
   </v-form>
 </template>
 
@@ -49,11 +49,8 @@ export default {
     wikigallery: WikiGallery,
   },
   data: () => ({
+    notFound: null,
     wikiData: null,
-    keyword: "ganesh",
-    objt: {
-      name: "shivam",
-    },
   }),
   mounted() {},
   methods: {
@@ -67,6 +64,9 @@ export default {
         })
         .then((result) => {
           console.log(result);
+          if (result.data.wikiItems.matchedkeywords.length === 0)
+            this.notFound = "No Results Found";
+          else this.notFound = null;
           this.wikiData = result;
         })
         .catch((err) => {
@@ -84,5 +84,8 @@ export default {
 }
 .container {
   margin-left: 28%;
+}
+h1 {
+  text-align: center;
 }
 </style>

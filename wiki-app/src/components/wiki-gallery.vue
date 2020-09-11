@@ -6,7 +6,7 @@
         :key="item"
         cols="3"
       >
-        <v-card outlined class="mx-auto">
+        <v-card outlined class="mx-auto" id="flexcard" height="100%">
           <v-img
             class="white--text align-end"
             height="200px"
@@ -47,7 +47,8 @@
               @click="
                 showDetails(
                   wikiData.data.wikiItems.matchedkeywords[item - 1],
-                  wikiData.data.wikiItems.body[item - 1]
+                  wikiData.data.wikiItems.body[item - 1],
+                  wikiData.data.wikiItems.webURL[item - 1]
                 )
               "
               >More</v-btn
@@ -63,8 +64,8 @@
       transition="dialog-bottom-transition"
     >
       <v-toolbar dark color="primary">
-        <v-btn icon dark @click="dialog = false">
-          <!-- <v-icon>mdi-close</v-icon> -->
+        <v-btn icon>
+          <v-icon @click="dialog = false">mdi-close</v-icon>
         </v-btn>
         <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -85,7 +86,7 @@
           </v-tabs>
         </template>
       </v-toolbar>
-      <v-card>
+      <v-card height="100%">
         <div class="img">
           <v-img :src="pageImage" max-width="300px" class="imgbox"> </v-img>
         </div>
@@ -98,45 +99,35 @@
         </v-tabs-items>
       </v-card>
     </v-dialog>
-    <!-- <div>
-      <p>
-        {{ wikiData }}
-      </p>
-    </div> -->
-    <!-- <moredetails :pageData="pageData"> </moredetails> -->
   </div>
 </template>
 
 <script>
-//import MoreDetails from "./moreDetails";
-
 export default {
   name: "wiki_gallery",
   props: ["wikiData"],
 
-  // components: {
-  //   moredetails: MoreDetails,
-  // },
   data: () => ({
     tab: null,
     imgErr:
       "https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg",
-    pageData: null,
     dialog: false,
     pageTitle: null,
     pageImage: null,
     pageExtract: null,
+    pageOrigin: null,
   }),
 
   methods: {
-    showDetails: function(pageTitle, pageDetails) {
-      console.log(pageDetails.extract);
+    showDetails: function(pageTitle, pageDetails, pageURL) {
+      console.log(pageURL);
       this.dialog = true;
       this.pageTitle = pageTitle;
       if (pageDetails.originalimage)
         this.pageImage = pageDetails.originalimage.source;
       else this.pageImage = this.imgErr;
       this.pageExtract = pageDetails.extract;
+      this.pageOrigin = pageURL;
     },
     displaytext: function() {
       var keyword = document.getElementById("findTextBox").value;

@@ -1,14 +1,12 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="main">
       <Search />
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld";
-
 import Search from "./components/search";
 
 export default {
@@ -21,3 +19,9 @@ export default {
   data: () => ({}),
 };
 </script>
+
+<style scoped>
+.main {
+  background-color: black;
+}
+</style>
