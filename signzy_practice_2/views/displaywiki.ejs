@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/wikiitem.css" />
+        <title>Results</title>
+    </head>
+    <body>
+        <h1>Results for < <%= wikiItems.searchedKeyword %>></h1>
+
+        <div class="grid">
+            <% for(let i = 0 ; i < wikiItems.matchedkeywords.length ; i++) { %>
+
+            <article
+                class="card wiki_item"
+                onclick="location.href='/wiki/<%= wikiItems._id%>/<%=i%>'"
+            >
+                <header class="card_title">
+                    <h1 class="wiki_title">
+                        <%= wikiItems.matchedkeywords[i]%>
+                    </h1>
+                </header>
+                <div class="card_data">
+                    <div class="card_img">
+                        <% if(wikiItems.body[i].originalimage) { %>
+                        <img
+                            class="wiki_img"
+                            src="<%= wikiItems.body[i].originalimage.source%>"
+                        />
+                        <%} else {%>
+                        <img
+                            class="wiki_img"
+                            src="https://pngimage.net/wp-content/uploads/2018/06/no-image-available-png-3.png"
+                        />
+                        <%}%>
+                    </div>
+                    <div class="card_summary">
+                        <p class="wiki_summary">
+                            <%= wikiItems.body[i].extract.substr(0,250)%>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- <div class="card_link">
+                    <a
+                        target="_blank"
+                        href="<%= wikiItems.webURL[i]%>"
+                        class="wiki_link"
+                        >ReadMore</a
+                    >
+                </div> -->
+            </article>
+
+            <% } %>
+        </div>
+    </body>
+</html>

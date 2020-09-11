@@ -1,23 +1,23 @@
 <template>
   <v-app>
     <v-main>
-      <WikiGallery />
+      <Search />
     </v-main>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld";
-import WikiGallery from "./components/wiki-gallery";
+
+import Search from "./components/search";
+
 export default {
   name: "App",
 
   components: {
-    WikiGallery,
+    Search,
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
 };
 </script>

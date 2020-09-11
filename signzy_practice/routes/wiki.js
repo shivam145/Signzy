@@ -8,6 +8,6 @@ router.post("/wiki/:wikiId/:pageId", wikiController.getWikiPage);
 
 router.get("/", wikiController.getSearchPage);
 
-router.post("/search", wikiController.postSearchPage);
+router.get("/search/:keyword", wikiController.postSearchPage);
 
 module.exports = router;

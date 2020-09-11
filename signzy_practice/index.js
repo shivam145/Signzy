@@ -5,20 +5,23 @@ const mongoConnect = require("./util/getInstance.js").mongoConnect;
 const wikiRouter = require("./routes/wiki.js");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 // app.use(bodyParser.json());
+
 app.use(
-    express.urlencoded({
-        extended: true,
-    })
+  express.urlencoded({
+    extended: true,
+  })
 );
+// app.use(cors);
 app.use(wikiRouter);
 app.use(express.static(path.join(__dirname, "static")));
 
 mongoConnect(() => {
-    console.log("Server Started");
-    app.listen(3000);
+  console.log("Server Started");
+  app.listen(3000);
 });

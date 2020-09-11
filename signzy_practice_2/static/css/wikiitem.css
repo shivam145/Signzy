@@ -1,0 +1,54 @@
+/* .grid {
+    flex-wrap: wrap;
+    justify-content: space-around;
+} */
+.card {
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 99%;
+    transition: 0.5s;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    background-color: silver;
+    box-shadow: 0 20px 35px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.card_img {
+    /* border: 1px solid black; */
+    width: 10rem;
+    max-width: 20rem;
+}
+.wiki_img {
+    width: 100%;
+    object-fit: fill;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+.wiki_title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.wiki_summary {
+    padding-left: 2rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.card_summary {
+    /* border: 1px solid black; */
+    width: 45rem;
+    max-width: 45rem;
+}
+.card_data {
+    /* border: 1px solid black; */
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+h1 {
+    text-align: center;
+}
